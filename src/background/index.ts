@@ -280,7 +280,8 @@ Guidelines:
     const globalSettings = await storage.get("settings") as Settings;
     
     const endpoint = globalSettings?.modelType === "local" 
-      ? `/v1/chat/completions`
+      //? `/v1/chat/completions`
+      ?`/api/generate`
       : globalSettings?.modelType === "gemini"
         ? "/v1beta/models/gemini-pro:streamGenerateContent"
         : "/api/generate";
@@ -484,7 +485,8 @@ Guidelines:
 
     url = requestSettings.serverUrl + endpoint;
     requestBody = {
-      model: "llama-3.2-3b-instruct",
+      //model: "llama-3.2-3b-instruct",
+      model:"deepseek-r1",
       messages: [
         {
           role: "system",

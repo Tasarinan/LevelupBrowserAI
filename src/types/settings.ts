@@ -13,6 +13,7 @@ export type GrokModel = "grok-2" | "grok-2-latest" | "grok-beta";
 // Local model types
 export type LocalModel = 
   | "llama-3.2-3b-instruct"
+  | "deepseek-r1"
   | "deepseek-v3"
   | "deepseek-v3-base"
   | "llama-2-70b-chat"

@@ -69,6 +69,12 @@ const LOCAL_MODELS: { value: LocalModel; label: string; description: string; siz
     size: "70B parameters"
   },
   {
+    value: "deepseek-r1",
+    label: "DeepSeek R1",
+    description: "Latest DeepSeek model with enhanced reasoning capabilities",
+    size: "70B parameters"
+  },
+  {
     value: "deepseek-v3",
     label: "DeepSeek V3",
     description: "Latest DeepSeek model with enhanced reasoning capabilities",

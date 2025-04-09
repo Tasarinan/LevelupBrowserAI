@@ -1,4 +1,4 @@
-## LightUp : AI-Powered Annotations for every page on the web.
+## Browser Level Up  : AI-Powered intelligent web assistant.
 
 ![1441](https://pbs.twimg.com/media/GgxiXUPXoAAVQWP?format=jpg&name=medium)
 
