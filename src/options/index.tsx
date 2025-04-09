@@ -495,7 +495,7 @@ function IndexOptions() {
 
 
   const colorOptions = [
-    { value: 'default', label: 'Default (System)', color: 'lu-bg-gray-200' },
+    { value: 'default', label: 'Default (System)', color: 'lu-bg-[#fff8bc]' },
     { value: 'orange', label: 'Orange', color: 'lu-bg-[#FFBF5A]' },
     { value: 'blue', label: 'Blue', color: 'lu-bg-[#93C5FD]' },
     { value: 'green', label: 'Green', color: 'lu-bg-[#86EFAC]' },
@@ -672,7 +672,7 @@ function IndexOptions() {
               </p>
             </div>
           </div>
-          <Badge variant="success">v0.1.11</Badge>
+          <Badge variant="success">v0.1.12</Badge>
         </motion.div>
 
         <div className="lu-grid lu-gap-6">
@@ -1032,8 +1032,8 @@ function IndexOptions() {
                 id="global-action-button"
                 checked={settings.customization?.showGlobalActionButton !== false}
                 onChange={(e) => handleImmediateSettingUpdate('showGlobalActionButton', e.target.checked)}
-                label="Global Action Button"
-                description="Show floating button to process entire page content"
+                label="Quick View"
+                description="Show floating button to instantly process page content"
               />
 
               <Switch
