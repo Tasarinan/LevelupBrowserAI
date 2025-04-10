@@ -32,7 +32,7 @@ export const getHighlightColor = (option: HighlightColorOption | undefined): str
 
 export const applyHighlightColor = (color: string | undefined, isEnabled: boolean) => {
   const selectionStyle = document.createElement('style');
-  selectionStyle.id = 'lightup-selection-style';
+  selectionStyle.id = 'levelupbrowserai-selection-style';
   
   if (!isEnabled) {
     // When disabled, use default system selection color
@@ -65,10 +65,10 @@ export const applyHighlightColor = (color: string | undefined, isEnabled: boolea
   }
 
   // Remove any existing selection style
-  document.getElementById('lightup-selection-style')?.remove();
+  document.getElementById('levelupbrowserai-selection-style')?.remove();
   document.head.appendChild(selectionStyle);
 
   return () => {
-    document.getElementById('lightup-selection-style')?.remove();
+    document.getElementById('levelupbrowserai-selection-style')?.remove();
   };
-}; 
+};

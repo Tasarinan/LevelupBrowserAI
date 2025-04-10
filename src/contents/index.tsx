@@ -225,11 +225,11 @@ if (isYouTube) {
     /* Override YouTube's CSS that affects font sizing */
     [data-plasmo-popup],
     [data-plasmo-popup] * {
-      font-size: var(--lightup-font-size, inherit) !important;
+      font-size: var(--levelupbrowserai-font-size, inherit) !important;
     }
     
     [data-plasmo-popup] [style*="font-size"] {
-      font-size: var(--lightup-set-size, inherit) !important;
+      font-size: var(--levelupbrowserai-set-size, inherit) !important;
     }
     
     /* Ensure our elements use our styling not YouTube's */
@@ -259,13 +259,13 @@ if (isYouTube) {
         // Apply the font size to all popup elements
         const popupElement = document.querySelector('[data-plasmo-popup]');
         if (popupElement instanceof HTMLElement) {
-          popupElement.style.setProperty('--lightup-font-size', fontSize);
+          popupElement.style.setProperty('--levelupbrowserai-font-size', fontSize);
           
           // Find elements with inline font-size and ensure they use our size
           const elementsWithFontSize = popupElement.querySelectorAll('[style*="font-size"]');
           elementsWithFontSize.forEach(element => {
             if (element instanceof HTMLElement) {
-              element.style.setProperty('--lightup-set-size', element.style.fontSize);
+              element.style.setProperty('--levelupbrowserai-set-size', element.style.fontSize);
             }
           });
         }
@@ -896,7 +896,7 @@ function Content() {
   // Add function to apply highlight to a range
   const applyHighlightToRange = (range: Range, color: string) => {
     const span = document.createElement('span');
-    span.className = 'lightup-highlight';
+    span.className = 'levelupbrowserai-highlight';
     span.style.backgroundColor = color;
     range.surroundContents(span);
     return span;
@@ -904,7 +904,7 @@ function Content() {
 
   // Add function to remove highlights
   const removeHighlights = () => {
-    const highlights = document.querySelectorAll('.lightup-highlight');
+    const highlights = document.querySelectorAll('.levelupbrowserai-highlight');
     highlights.forEach(highlight => {
       const parent = highlight.parentNode;
       if (parent) {
@@ -1166,7 +1166,7 @@ function Content() {
               color: currentTheme === "dark" ? '#fff' : '#000'
             }}
           >
-            Welcome to LightUp
+            Welcome to LevelUpBrowserAI
           </motion.h2>
           <motion.p
             style={{

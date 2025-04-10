@@ -1,10 +1,10 @@
-# Privacy Policy for LightUp Extension
+# Privacy Policy for LevelUpBrowserAI Extension
 
 Last Updated: March 2024
 
 ## Introduction
 
-LightUp ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our Chrome extension.
+LevelUpBrowserAI ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our Chrome extension.
 
 ## Information Collection
 
@@ -84,9 +84,9 @@ We may update this privacy policy. Significant changes will be notified through:
 ## Contact
 
 For privacy concerns or questions:
-- Email: support@lightup.ai
-- GitHub Issues: [LightUp Repository](https://github.com/yourusername/LightUp)
-- Website: https://lightup.ai
+- Email: support@levelupbrowser.ai
+- GitHub Issues: [LevelUpBrowserAI Repository](https://github.com/yourusername/LevelUpBrowserAI)
+- Website: https://levelupbrowser.ai
 
 ## Compliance
 
@@ -94,4 +94,4 @@ This extension complies with:
 - Chrome Web Store Developer Program Policies
 - GDPR (EU users)
 - CCPA (California users)
-- PIPEDA (Canadian users) 
+- PIPEDA (Canadian users)

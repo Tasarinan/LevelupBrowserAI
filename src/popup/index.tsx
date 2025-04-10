@@ -125,7 +125,7 @@ const ShortcutsSection = () => {
     { key: "Ctrl+Shift+A", description: "Switch to Analyze mode" },
     { key: "Ctrl+Shift+T", description: "Switch to Translate mode" },
     { key: "Ctrl+Shift+F / Command+Shift+F", description: "Open popup in Free mode" },
-    { key: "Ctrl+Shift+X", description: "Toggle LightUp on/off" },
+    { key: "Ctrl+Shift+X", description: "Toggle LevelUpBrowserAI on/off" },
     { key: "Ctrl+Shift+R", description: "Toggle Radically Focus mode" },
     { key: "Ctrl+Shift+D", description: "Toggle Light/Dark theme" }
   ];
@@ -174,7 +174,7 @@ const ShortcutsSection = () => {
             </div>
           ))}
           <p className="lu-text-xs lu-text-gray-500 lu-mt-1 lu-pt-1">
-            After setting the mode via shortcut, select any text and LightUp will appear with your chosen mode.
+            After setting the mode via shortcut, select any text and LevelUpBrowserAI will appear with your chosen mode.
           </p>
         </div>
       )}
@@ -793,7 +793,7 @@ function IndexPopup() {
           <div className="lu-flex lu-justify-between lu-items-center lu-p-4 lu-border-b lu-border-[#D6D6D6]">
             <div className="lu-flex lu-items-center lu-gap-2">
               <Logo />
-              <h1 className="lu-text-xl lu-font-semibold">LightUp</h1>
+              <h1 className="lu-text-xl lu-font-semibold">LevelUpBrowserAI</h1>
             </div>
             <div className="lu-flex lu-items-center lu-gap-2">
               <div className="lu-relative lu-group">
@@ -809,12 +809,12 @@ function IndexPopup() {
                   tabIndex={0}
                 >
                   <svg className="lu-w-4 lu-h-4" fill="none" strokeWidth="2" stroke="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                    <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.924 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
                   </svg>
                   Settings
                 </button>
                 <div className="lu-absolute lu-top-full lu-left-1/2 lu-transform lu--translate-x-1/2 lu-mt-2 lu-px-3 lu-py-1.5 lu-bg-gray-800 lu-text-white lu-text-xs lu-rounded lu-opacity-0 lu-group-hover:lu-opacity-100 lu-transition-opacity lu-duration-200 lu-pointer-events-none lu-whitespace-nowrap lu-z-10">
-                  Customize LightUp appearance and behavior
+                  Customize LevelUpBrowserAI appearance and behavior
                   <div className="lu-absolute lu-bottom-full lu-left-1/2 lu-transform lu--translate-x-1/2 lu-border-4 lu-border-transparent lu-border-b-gray-800"></div>
                 </div>
               </div>
@@ -895,7 +895,7 @@ function IndexPopup() {
           <div className="lu-bg-[#E9E9E9] lu-p-6 lu-flex-1 lu-overflow-y-auto">
             <div className="lu-flex lu-items-center lu-justify-between lu-gap-2 lu-mb-6">
               <h2 className="lu-text-xl lu-font-medium lu-text-black lu-flex lu-items-center lu-gap-2">
-                Define LightUp's purpose
+                Define LevelUpBrowserAI's purpose
                 <span className="lu-text-gray-400">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <circle cx="12" cy="12" r="10" strokeWidth="2"/>
@@ -956,7 +956,7 @@ function IndexPopup() {
                   ))}
                 </div>
                 <p className="lu-text-xs lu-text-gray-500 lu-mt-2">
-                  These modes will appear in the mode selector when using LightUp.
+                  These modes will appear in the mode selector when using LevelUpBrowserAI.
                 </p>
               </div>
             )}
@@ -1107,11 +1107,7 @@ function IndexPopup() {
                       <path 
                         strokeLinecap="round" 
                         strokeLinejoin="round" 
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c-.94 1.543.826 3.31 2.37 2.106a1.724 1.724 0 002.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" />
                     </svg>
                     Settings
                   </button>
@@ -1130,11 +1126,11 @@ function IndexPopup() {
                 </div>
                 <div className="lu-flex lu-items-center lu-gap-4">
                   <a
-                    href="https://www.boimaginations.com/lightup"
+                    href="https://www.levelupbrowser.ai"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="lu-text-gray-600 hover:lu-text-gray-900 lu-transition-colors"
-                    aria-label="LightUp Website"
+                    aria-label="LevelUpBrowserAI Website"
                     tabIndex={0}>
                     <svg className="lu-w-4 lu-h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="10"></circle>
@@ -1143,7 +1139,7 @@ function IndexPopup() {
                     </svg>
                   </a>
                   <a
-                    href="https://github.com/mohamedsadiq/LightUp"
+                    href="https://github.com/Tasarinan/LevelupBrowserAI"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="lu-text-gray-600 hover:lu-text-gray-900 lu-transition-colors"
@@ -1154,7 +1150,7 @@ function IndexPopup() {
                     </svg>
                   </a>
                   <a
-                    href="https://x.com/Lightupaii"
+                    href="https://x.com/Levelupbrowserai"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="lu-text-gray-600 hover:lu-text-gray-900 lu-transition-colors"
@@ -1165,7 +1161,7 @@ function IndexPopup() {
                     </svg>
                   </a>
                   <a
-                    href="https://www.instagram.com/lightupaiapp/"
+                    href="https://www.instagram.com/levelupbrowseraiapp/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="lu-text-gray-600 hover:lu-text-gray-800 lu-transition-colors"

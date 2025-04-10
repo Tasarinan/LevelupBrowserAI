@@ -1,28 +1,28 @@
-## Browser Level Up  : AI-Powered intelligent web assistant.
+## Browser Level Up  : Large language intelligent web assistant.
 
 ![1441](https://pbs.twimg.com/media/GgxiXUPXoAAVQWP?format=jpg&name=medium)
 
 
 <div align="center">
-  <a href="https://boimaginations.com/lightup">🌐 Website</a> | <a href="https://x.com/sadiq_moo">𝕏 Follow us on X</a> | <a href="https://www.boimaginations.com/lightup/getting-started">🚀 Getting Started</a> | <a href="https://github.com/mohamedsadiq/LightUp/releases">📥 Release Page</a> |  <a href="https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel?authuser=5&hl=en-GB">📥 Download on Chrome</a>
+  <a href="https://boimaginations.com/levelupbrowserai">🌐 Website</a> | <a href="https://x.com/sadiq_moo">𝕏 Follow us on X</a> | <a href="https://www.boimaginations.com/levelupbrowserai/getting-started">🚀 Getting Started</a> | <a href="https://github.com/mohamedsadiq/LevelUpBrowserAI/releases">📥 Release Page</a> |  <a href="https://chromewebstore.google.com/detail/levelupbrowserai-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel?authuser=5&hl=en-GB">📥 Download on Chrome</a>
 </div>
 
-## ✨  Meet LightUp
+## ✨  Meet LevelUpBrowserAI
 Seamless AI assistance that lives in your browser. No new tabs. No context switching. No interruptions. Just highlight any text and instantly get AI-powered insights.
 
 ## 🚀 Quick Start
 
-1. **Download LightUp**
-   - Visit our [Releases page](https://github.com/lightup/releases) or
-   - Get it from [Chrome Web Store](https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel?authuser=5&hl=en-GB)
+1. **Download LevelUpBrowserAI**
+   - Visit our [Releases page](https://github.com/levelupbrowserai/releases) or
+   - Get it from [Chrome Web Store](https://chromewebstore.google.com/detail/levelupbrowserai-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel?authuser=5&hl=en-GB)
 
 2. **Setup**
-   - Pin LightUp to your browser toolbar
-   - Right-click on the LightUp icon in your browser toolbar and then click on "Options"
+   - Pin LevelUpBrowserAI to your browser toolbar
+   - Right-click on the LevelUpBrowserAI icon in your browser toolbar and then click on "Options"
    - Choose your preferred AI model
    - Start highlighting text to see the magic!
 
-[📖 Detailed Installation Guide](#installation-for-users) or visit our [Getting Started page](https://www.boimaginations.com/lightup/getting-started)
+[📖 Detailed Installation Guide](#installation-for-users) or visit our [Getting Started page](https://www.boimaginations.com/levelupbrowserai/getting-started)
 
 
 ## ✨ Features
@@ -53,18 +53,18 @@ Seamless AI assistance that lives in your browser. No new tabs. No context switc
 
 ## 📥 Download
 
-Download the latest version of LightUp from our [Releases page](https://github.com/lightup/releases). Choose the appropriate version for your browser and follow the installation instructions below.
+Download the latest version of LevelUpBrowserAI from our [Releases page](https://github.com/levelupbrowserai/releases). Choose the appropriate version for your browser and follow the installation instructions below.
 
 
 ## 🚀 Getting Started
 
-## LightUp User Guide
+## LevelUpBrowserAI User Guide
 
 ### Installation for users
 
 1. Download the Extension
-  - Go to the LightUp Releases
-  - Download the latest release ZIP file (lightup-vX.X.X.zip) and unzip it.
+  - Go to the LevelUpBrowserAI Releases
+  - Download the latest release ZIP file (levelupbrowserai-vX.X.X.zip) and unzip it.
 
 2. Install in Chrome/Brave
    - Open Chrome/Brave and go to chrome://extensions/
@@ -77,8 +77,8 @@ OR click "Load unpacked" and select the unzipped folder.
 
 1. Pin the Extension
    - Click the puzzle piece icon in your browser toolbar
-   - Find LightUp and click the pin icon to keep it easily accessible
-   - Right-click the LightUp icon and choose "Options" to go directly to Settings
+   - Find LevelUpBrowserAI and click the pin icon to keep it easily accessible
+   - Right-click the LevelUpBrowserAI icon and choose "Options" to go directly to Settings
   
 2. Choose your preferred AI backend:
    - Local LLM (requires running local server)
@@ -90,35 +90,35 @@ OR click "Load unpacked" and select the unzipped folder.
 ## 🔧 Usage
 
 1. Select any text on a webpage
-2. A LightUp popup will appear
+2. A LevelUpBrowserAI popup will appear
 3. Get instant AI-powered insights
 4. Ask follow-up questions for deeper understanding
 
 ## Keyboard Shortcuts
 
-LightUp supports keyboard shortcuts for quick mode switching:
+LevelUpBrowserAI supports keyboard shortcuts for quick mode switching:
 
 - `Ctrl+Shift+Z`: Switch to Explain mode
 - `Ctrl+Shift+S`: Switch to Summarize mode
 - `Ctrl+Shift+A`: Switch to Analyze mode
 - `Ctrl+Shift+T`: Switch to Translate mode
 - `Ctrl+Shift+F` / `Command+Shift+F`: Open popup in Free mode (floating, sidebar, or centered based on your settings)
-- `Ctrl+Shift+X`: Toggle LightUp on/off
+- `Ctrl+Shift+X`: Toggle LevelUpBrowserAI on/off
 - `Ctrl+Shift+R`: Toggle Radically Focus mode
 - `Ctrl+Shift+D`: Toggle Light/Dark theme
 
-After setting the mode via shortcut, simply select any text and LightUp will appear with your chosen mode.
+After setting the mode via shortcut, simply select any text and LevelUpBrowserAI will appear with your chosen mode.
 
 ## Switching Modes
 
 You can switch modes in two ways:
 1. Using keyboard shortcuts (see above)
-2. Clicking the LightUp icon in the toolbar to manually select a mode
+2. Clicking the LevelUpBrowserAI icon in the toolbar to manually select a mode
 
 This allows you to easily toggle between explaining, summarizing, analyzing, and translating text as per your needs.
 
 
-## 🛠️ Developer Guide: Setting Up LightUp with Plasmo Framework
+## 🛠️ Developer Guide: Setting Up LevelUpBrowserAI with Plasmo Framework
 
 ### Prerequisites
 
@@ -130,8 +130,8 @@ This allows you to easily toggle between explaining, summarizing, analyzing, and
 1. **Clone the Repository**
    - Open your terminal and run:
      ```bash
-     git clone https://github.com/mohamedsadiq/LightUp.git
-     cd LightUp
+     git clone https://github.com/mohamedsadiq/LevelUpBrowserAI.git
+     cd LevelUpBrowserAI
      ```
 
 2. **Install Dependencies**

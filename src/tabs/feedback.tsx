@@ -64,7 +64,7 @@ function FeedbackPage() {
     <div className="min-h-screen bg-[#E9E9E9] py-12 px-4 sm:px-6 lg:px-8 font-['K2D']">
       <div className="max-w-2xl mx-auto">
         <div className="flex flex-col items-center mb-8">
-          {/* LightUp Logo */}
+          {/* LevelUpBrowserAI Logo */}
           <svg width="70" height="70" viewBox="0 0 202 201" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-6">
             <g filter="url(#filter0_d_171_147)">
               <circle cx="101.067" cy="101.227" r="32.1546" fill="black"/>
@@ -100,7 +100,7 @@ function FeedbackPage() {
 
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Tell Us Your Opinion</h1>
-            <p className="text-gray-600">We value your feedback and are constantly working to improve LightUp</p>
+            <p className="text-gray-600">We value your feedback and are constantly working to improve LevelUpBrowserAI</p>
           </div>
         </div>
 
@@ -203,7 +203,7 @@ function FeedbackPage() {
         
         <div className="max-w-2xl mx-auto flex flex-col items-center gap-4">
         <a 
-            href="https://chromewebstore.google.com/detail/lightup-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel"
+            href="https://chromewebstore.google.com/detail/levelupbrowserai-ai-powered-web-an/pncapgeoeedlfppkohlbelelkkihikel"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors flex items-center gap-2"
@@ -214,7 +214,7 @@ function FeedbackPage() {
             Leave a review on the Chrome Web Store
           </a> 
           <a 
-            href="https://www.boimaginations.com/lightup"
+            href="https://www.levelupbrowser.ai"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
@@ -226,7 +226,7 @@ function FeedbackPage() {
           
           <div className="flex items-center gap-4">
             <a
-              href="https://www.boimaginations.com/lightup"
+              href="https://www.levelupbrowser.ai"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -239,7 +239,7 @@ function FeedbackPage() {
               </svg>
             </a>
             <a
-              href="https://github.com/mohamedsadiq/LightUp"
+              href="https://github.com/Tasarinan/LevelupBrowserAI.git"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -250,7 +250,7 @@ function FeedbackPage() {
               </svg>
             </a>
             <a
-              href="https://x.com/Lightupaii"
+              href="https://x.com/Levelupbrowserai"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -261,7 +261,7 @@ function FeedbackPage() {
               </svg>
             </a>
             <a
-              href="https://www.instagram.com/lightupaiapp/"
+              href="https://www.instagram.com/levelupbrowserai/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -278,4 +278,4 @@ function FeedbackPage() {
   )
 }
 
-export default FeedbackPage 
+export default FeedbackPage

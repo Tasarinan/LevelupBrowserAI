@@ -1,8 +1,8 @@
 {
-  "name": "lightup",
-  "displayName": "LightUp",
+  "name": "levelupbrowserai",
+  "displayName": "LevelUpBrowserAI",
   "version": "0.1.12",
-  "description": "Genius annotations for every page on the web.",
+  "description": "Large language intelligent web assistant.",
   "author": "Moe Sadiq",
   "scripts": {
     "dev": "plasmo dev",
@@ -42,9 +42,9 @@
   },
   "manifest": {
     "manifest_version": 3,
-    "name": "LightUp - AI Powered Web Annotations. summary, translate, and more",
+    "name": "LevelUpBrowserAI - Large language intelligent web assistant to summary, translate, and more",
     "version": "0.1.12",
-    "description": "Genius annotations for every page on the web. Powered by AI to explain, summarize, analyze, translate, and more.",
+    "description": "Large language intelligent web assistant. Powered by AI to explain, summarize, analyze, translate, and more.",
     "background": {
       "service_worker": "background.js",
       "type": "module"

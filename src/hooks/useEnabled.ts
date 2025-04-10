@@ -27,7 +27,7 @@ export const useEnabled = (onStateChange?: (message: string) => void): UseEnable
     await storage.set("isEnabled", newState.toString());
     
     if (onStateChange) {
-      onStateChange(`LightUp ${newState ? 'enabled' : 'disabled'} (Ctrl+Shift+X)`);
+      onStateChange(`LevelUpBrowserAI ${newState ? 'enabled' : 'disabled'} (Ctrl+Shift+X)`);
     }
   };
 
@@ -35,4 +35,4 @@ export const useEnabled = (onStateChange?: (message: string) => void): UseEnable
     isEnabled,
     handleEnabledChange
   };
-}; 
+};

@@ -665,7 +665,7 @@ function IndexOptions() {
             <Logo />
             <div>
               <h1 className="lu-text-lg lu-font-medium lu-text-gray-800 lu-m-0">
-                LightUp Settings
+                LevelUpBrowserAI Settings
               </h1>
               <p className="lu-text-xs lu-text-gray-500 lu-mt-1">
                 Configure your AI assistant preferences
@@ -698,7 +698,7 @@ function IndexOptions() {
                   }))}
                   className="lu-w-full lu-p-3 lu-rounded-lg lu-border lu-border-gray-200 lu-bg-white lu-text-gray-800 lu-font-medium lu-transition-colors lu-duration-200 hover:lu-border-[#10a37f] focus:lu-border-[#10a37f] focus:lu-ring focus:lu-ring-[#10a37f]/20"
                 >
-                  <option value="basic">LightUp Basic (Free)</option>
+                  <option value="basic">LevelUpBrowserAI Basic (Free)</option>
                   <option value="local">Local LLM</option>
                   <option value="gemini">Google Gemini</option>
                   <option value="xai">xAI (Grok)</option>
@@ -719,7 +719,7 @@ function IndexOptions() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="lu-text-lg lu-font-semibold lu-text-gray-900">LightUp Basic</h3>
+                      <h3 className="lu-text-lg lu-font-semibold lu-text-gray-900">LevelUpBrowserAI Basic</h3>
                       <p className="lu-text-sm lu-text-gray-600">Free tier with basic features</p>
                     </div>
                   </div>
@@ -1141,7 +1141,7 @@ function IndexOptions() {
           >
             <div className="lu-mb-4">
               <p className="lu-text-sm lu-text-gray-500 lu-mb-4">
-                Customize how LightUp processes your text for each mode. You can edit both the system prompt (instructions to the AI) and the user prompt (how your text is formatted).
+                Customize how LevelUpBrowserAI processes your text for each mode. You can edit both the system prompt (instructions to the AI) and the user prompt (how your text is formatted).
               </p>
               
               <div className="lu-mb-6">

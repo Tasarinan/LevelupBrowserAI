@@ -1,4 +1,4 @@
-# LightUp Extension Permissions Explanation
+# LevelUpBrowserAI Extension Permissions Explanation
 
 ## Required Permissions
 
@@ -82,4 +82,4 @@ We follow Chrome's best practices for permissions:
 - Explain each permission's purpose
 - Provide user control
 - Maintain transparency
-- Regular security audits 
+- Regular security audits

@@ -78,7 +78,7 @@ function Welcome() {
           <div className="flex justify-center mb-6">
             <Logo />
           </div>
-          <h1 className="text-4xl font-bold mb-4 text-gray-900">Welcome to LightUp</h1>
+          <h1 className="text-4xl font-bold mb-4 text-gray-900">Welcome to LevelUpBrowserAI</h1>
           <p className="text-lg text-gray-600">Let's get you set up in just a few steps</p>
         </div>
 
@@ -187,10 +187,10 @@ function Welcome() {
               <h2 className="text-2xl font-semibold mb-4">You're all set!</h2>
               <div className="space-y-4">
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-2">How to use LightUp:</h3>
+                  <h3 className="font-medium mb-2">How to use LevelUpBrowserAI:</h3>
                   <ol className="list-decimal list-inside space-y-2 text-gray-600">
                     <li>Select any text on a webpage</li>
-                    <li>A LightUp popup will appear</li>
+                    <li>A LevelUpBrowserAI popup will appear</li>
                     <li>Choose an action (Explain, Summarize, etc.)</li>
                     <li>Get instant AI-powered insights</li>
                   </ol>
@@ -210,4 +210,4 @@ function Welcome() {
   )
 }
 
-export default Welcome 
+export default Welcome

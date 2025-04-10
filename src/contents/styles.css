@@ -1,12 +1,12 @@
 /* Base styles for content */
-.lightup-content {
+.levelupbrowserai-content {
   font-family: 'K2D', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   color: #1a1a1a;
 }
 
 /* Dialog styles */
-.lightup-dialog {
+.levelupbrowserai-dialog {
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -17,17 +17,17 @@
 }
 
 /* Dark mode styles */
-.dark .lightup-dialog {
+.dark .levelupbrowserai-dialog {
   background: #1a1a1a;
   color: #ffffff;
 }
 
 /* Animation classes */
-.lightup-fade-in {
+.levelupbrowserai-fade-in {
   animation: fadeIn 0.2s ease-in-out;
 }
 
-.lightup-scale-in {
+.levelupbrowserai-scale-in {
   animation: scaleIn 0.2s ease-in-out;
 }
 
@@ -90,7 +90,7 @@
 }
 
 /* Highlight styles */
-.lightup-highlight {
+.levelupbrowserai-highlight {
   display: inline;
   padding: 2px 0;
   border-radius: 2px;
@@ -100,11 +100,11 @@
   color: #000000 !important;
 }
 
-.lightup-highlight:hover {
+.levelupbrowserai-highlight:hover {
   filter: brightness(0.95);
 }
 
-/* Ensure all LightUp components have their own styles and don't inherit from the page */
+/* Ensure all LevelUpBrowserAI components have their own styles and don't inherit from the page */
 [data-plasmo-popup] button,
 [data-plasmo-popup] input,
 [data-plasmo-popup] select,
@@ -167,4 +167,4 @@
   height: 6px;
   border-right: 2px solid rgba(0, 0, 0, 0.2);
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-} 
+}

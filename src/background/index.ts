@@ -690,15 +690,15 @@ Guidelines:
   }
 }
 
-const ONBOARDING_URL = "https://www.boimaginations.com/lightup/welcome" // Replace with your actual onboarding URL
+const ONBOARDING_URL = "https://www.levelupbrowser.ai/welcome";
 
 // Create context menu item for manual activation
 const createContextMenu = () => {
   // Remove existing items to avoid duplicates
   chrome.contextMenus.removeAll(() => {
     chrome.contextMenus.create({
-      id: "lightup-process-text",
-      title: "Process with LightUp",
+      id: "levelupbrowserai-process-text",
+      title: "Process with LevelUpBrowserAI",
       contexts: ["selection"],
     });
   });
@@ -706,7 +706,7 @@ const createContextMenu = () => {
 
 // Handle context menu clicks
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId === "lightup-process-text" && tab?.id) {
+  if (info.menuItemId === "levelupbrowserai-process-text" && tab?.id) {
     chrome.tabs.sendMessage(tab.id, {
       type: "PROCESS_SELECTED_TEXT",
       selectionText: info.selectionText
@@ -784,4 +784,4 @@ chrome.runtime.onConnect.addListener((port) => {
       }
     });
   }
-}); 
+});

@@ -5,7 +5,7 @@ AI-powered web annotations that explain, summarize, and analyze any text you sel
 
 ## Detailed Description
 
-Transform your web browsing experience with LightUp - your intelligent companion for understanding web content. Simply select any text on any webpage to get instant AI-powered explanations, summaries, and analyses.
+Transform your web browsing experience with LevelUpBrowserAI - your intelligent companion for understanding web content. Simply select any text on any webpage to get instant AI-powered explanations, summaries, and analyses.
 
 🔥 KEY FEATURES:
 
@@ -53,7 +53,7 @@ Transform your web browsing experience with LightUp - your intelligent companion
   - "commands": For keyboard shortcuts
 
 ⚡️ GETTING STARTED:
-1. Install LightUp
+1. Install LevelUpBrowserAI
 2. Click the toolbar icon to configure
 3. Select your preferred AI model
 4. Enter your API key (if using cloud models)
@@ -70,4 +70,4 @@ Transform your web browsing experience with LightUp - your intelligent companion
 
 Note: This extension requires an API key for cloud AI models (Gemini/xAI). Local LLM setup is available for complete privacy.
 
-For support or feature requests, visit our GitHub repository or contact support@lightup.ai 
+For support or feature requests, visit our GitHub repository or contact support@levelupbrowserai.ai
