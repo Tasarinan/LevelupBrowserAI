@@ -52,12 +52,42 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   if (details.reason === "install") {
     const storage = new Storage()
     const existingSettings = await storage.get("settings")
-    
+
     if (!existingSettings) {
       await storage.set("settings", DEFAULT_SETTINGS)
-    
+
     }
   }
+   // Dynamically generate a unique rule ID
+   const uniqueRuleId = Math.floor(Date.now() % 1000000);
+
+   /*
+    * Chrome sends its origin with a chrome ID in any POST API call, but it was not accepted by Ollama.
+    * Therefore, this code will forcefully add the origin of the Ollama default port!
+    */
+   chrome.declarativeNetRequest.updateDynamicRules({
+     addRules: [
+       {
+         id: uniqueRuleId,
+         priority: 1,
+         action: {
+           type: chrome.declarativeNetRequest.RuleActionType.MODIFY_HEADERS,
+           requestHeaders: [
+             {
+               header: "Origin",
+               operation: chrome.declarativeNetRequest.HeaderOperation.SET, // Use 'set' operation to replace the value
+               value: "http://127.0.0.1", // The new origin value
+             },
+           ],
+         },
+         condition: {
+           urlFilter: "http://mncjhub.dyn.nesc.nokia.net:11434/*", // The API URL you want to target
+           resourceTypes: [chrome.declarativeNetRequest.ResourceType.MAIN_FRAME, chrome.declarativeNetRequest.ResourceType.XMLHTTPREQUEST], // You can target specific types of requests
+         },
+       },
+     ],
+     removeRuleIds: [], // No rules to remove initially
+   });
 })
 
 let activeConnections = new Map<string, {
@@ -93,7 +123,7 @@ setInterval(rateLimiter.clean, 5 * 60 * 1000); // Every 5 minutes
 const checkRateLimit = (apiKey: string): boolean => {
   const now = Date.now();
   const timestamps = rateLimiter.requests.get(apiKey) || [];
-  
+
   // Clean old timestamps
   const recentTimestamps = timestamps.filter(t => now - t < 60 * 60 * 1000);
   const lastMinuteTimestamps = recentTimestamps.filter(t => now - t < 60 * 1000);
@@ -125,9 +155,9 @@ const isConfigurationValid = (settings: Settings): boolean => {
       case "openai": {
         const openaiKey = settings.apiKey;
         return !!openaiKey && (
-          openaiKey.startsWith('sk-') || 
-          openaiKey.startsWith('org-') || 
-          openaiKey.length >= 32 
+          openaiKey.startsWith('sk-') ||
+          openaiKey.startsWith('org-') ||
+          openaiKey.length >= 32
         );
       }
       case "gemini":
@@ -149,7 +179,7 @@ const isConfigurationValid = (settings: Settings): boolean => {
 
 const waitForSettings = async (maxAttempts = 3, delayMs = 1000): Promise<Settings | null> => {
   const storage = new Storage();
-  
+
   for (let i = 0; i < maxAttempts; i++) {
     const settings = await storage.get("settings") as Settings;
     if (settings && isConfigurationValid(settings)) {
@@ -163,7 +193,7 @@ const waitForSettings = async (maxAttempts = 3, delayMs = 1000): Promise<Setting
 export async function handleProcessText(request: ProcessTextRequest, port: chrome.runtime.Port) {
   const connectionId = port.name.split('text-processing-')[1];
   const abortController = new AbortController();
-  
+
   try {
     const settings = await waitForSettings();
     if (!settings) {
@@ -183,20 +213,20 @@ export async function handleProcessText(request: ProcessTextRequest, port: chrom
     }
 
     const { mode, text, context, isFollowUp, settings: requestSettings, conversationContext } = request;
-    
+
     // Enhanced context handling
     let enhancedContext = conversationContext;
     if (isFollowUp && conversationContext) {
       // Load the stored context from storage
       const storage = new Storage();
       const storedContext = await storage.get<ConversationContext>("conversationContext");
-      
+
       // Merge stored context with current context if available
       if (storedContext) {
         enhancedContext = {
           ...storedContext,
           history: [...storedContext.history, ...conversationContext.history],
-          entities: [...storedContext.entities, ...conversationContext.entities.filter(e => 
+          entities: [...storedContext.entities, ...conversationContext.entities.filter(e =>
             !storedContext.entities.some(se => se.name === e.name)
           )],
           activeEntity: conversationContext.activeEntity || storedContext.activeEntity
@@ -222,7 +252,7 @@ export async function handleProcessText(request: ProcessTextRequest, port: chrom
         layoutMode: "sidebar"
       }
     };
-    
+
     if (!isConfigurationValid(validationSettings)) {
       throw new Error(
         `Invalid configuration for ${requestSettings?.modelType?.toUpperCase() || 'AI model'}.\n` +
@@ -253,11 +283,11 @@ export async function handleProcessText(request: ProcessTextRequest, port: chrom
 ${conversationContext.activeEntity?.name ? `Current topic: ${conversationContext.activeEntity.name}` : ''}
 
 Last exchange:
-${conversationContext.history.slice(-2).map(msg => 
-  msg.role === "user" 
-    ? `Q: ${msg.content}` 
-    : `A: ${msg.content}`
-).join('\n')}
+${conversationContext.history.slice(-2).map(msg =>
+        msg.role === "user"
+          ? `Q: ${msg.content}`
+          : `A: ${msg.content}`
+      ).join('\n')}
 
 New question: "${text}"
 
@@ -267,21 +297,21 @@ Guidelines:
 3. Don't mention topic changes or previous context unless directly relevant
 4. Don't apologize for not knowing something - just state what you know or don't know
 5. Keep responses focused and concise`
-      : mode === "translate" && requestSettings?.translationSettings 
+      : mode === "translate" && requestSettings?.translationSettings
         ? typeof USER_PROMPTS[mode] === 'function'
           ? USER_PROMPTS[mode](text, `${requestSettings.translationSettings.fromLanguage}:${requestSettings.translationSettings.toLanguage}`)
           : text
-        : typeof USER_PROMPTS[mode] === 'function' 
+        : typeof USER_PROMPTS[mode] === 'function'
           ? USER_PROMPTS[mode](text, context)
           : text;
 
-   
+
     const storage = new Storage();
     const globalSettings = await storage.get("settings") as Settings;
-    
-    const endpoint = globalSettings?.modelType === "local" 
+
+    const endpoint = globalSettings?.modelType === "local"
       //? `/v1/chat/completions`
-      ?`/api/generate`
+      ? `/api/generate`
       : globalSettings?.modelType === "gemini"
         ? "/v1beta/models/gemini-pro:streamGenerateContent"
         : "/api/generate";
@@ -328,14 +358,14 @@ Guidelines:
         const candidate = data.candidates[0];
         if (candidate.content && candidate.content.parts && candidate.content.parts.length > 0) {
           const text = candidate.content.parts[0].text;
-          
+
           // Split the text into smaller chunks for streaming-like behavior
           const words = text.split(' ');
           const chunkSize = 20; // Send more words at a time (increased from 15)
-          
+
           for (let i = 0; i < words.length; i += chunkSize) {
             const chunk = words.slice(i, i + chunkSize).join(' ');
-          
+
             port.postMessage({
               type: 'chunk',
               content: chunk + ' ',
@@ -352,7 +382,7 @@ Guidelines:
         console.warn('No candidates in Gemini response:', data);
       }
 
-      port.postMessage({ 
+      port.postMessage({
         type: 'done',
         isFollowUp: isFollowUp,
         id: request.id
@@ -361,7 +391,7 @@ Guidelines:
     }
 
     if (requestSettings.modelType === "xai") {
-     
+
       let buffer = '';
       let markdownBuffer = '';
       let isInMarkdown = false;
@@ -394,7 +424,7 @@ Guidelines:
         if (isMarkdown && cleanedText.startsWith('**') && cleanedText.endsWith('**')) {
           // Remove redundant punctuation in headings
           cleanedText = cleanedText.replace(/\*\*(.*?)[:.]+\s*\*\*$/, '**$1**');
-          
+
           if (lastSentWasHeading) {
             // Skip if we just sent a heading
             return;
@@ -407,12 +437,12 @@ Guidelines:
         // Only send if we have meaningful content
         if (cleanedText.length > 2) {
           // Don't add extra punctuation to headings or bullet points
-          const needsPunctuation = !cleanedText.endsWith('.') && 
-                                 !cleanedText.endsWith('!') && 
-                                 !cleanedText.endsWith('?') &&
-                                 !cleanedText.endsWith('**') &&
-                                 !cleanedText.startsWith('• ');
-          
+          const needsPunctuation = !cleanedText.endsWith('.') &&
+            !cleanedText.endsWith('!') &&
+            !cleanedText.endsWith('?') &&
+            !cleanedText.endsWith('**') &&
+            !cleanedText.startsWith('• ');
+
           port.postMessage({
             type: 'chunk',
             content: cleanedText + (needsPunctuation ? '. ' : ' '),
@@ -455,10 +485,10 @@ Guidelines:
               markdownBuffer += text[currentIndex];
             } else {
               buffer += text[currentIndex];
-              
+
               // Check for sentence end
-              if (['.', '!', '?'].includes(text[currentIndex]) && 
-                  (currentIndex === text.length - 1 || /\s/.test(text[currentIndex + 1]))) {
+              if (['.', '!', '?'].includes(text[currentIndex]) &&
+                (currentIndex === text.length - 1 || /\s/.test(text[currentIndex + 1]))) {
                 cleanAndSendText(buffer);
                 buffer = '';
               }
@@ -486,7 +516,7 @@ Guidelines:
     url = requestSettings.serverUrl + endpoint;
     requestBody = {
       //model: "llama-3.2-3b-instruct",
-      model:"deepseek-r1",
+      model: "deepseek-r1",
       messages: [
         {
           role: "system",
@@ -525,8 +555,8 @@ Guidelines:
     // Function to efficiently process and send accumulated chunks
     const processAndSendChunks = () => {
       if (pendingChunks.length > 0) {
-        port.postMessage({ 
-          type: 'chunk', 
+        port.postMessage({
+          type: 'chunk',
           content: pendingChunks.join(''),
           isFollowUp: isFollowUp,
           id: request.id
@@ -539,20 +569,20 @@ Guidelines:
     while (true) {
       try {
         const { done, value } = await reader.read();
-        
+
         if (done) {
           // Process any pending chunks
           processAndSendChunks();
-          
+
           if (buffer) {
-            port.postMessage({ 
-              type: 'chunk', 
+            port.postMessage({
+              type: 'chunk',
               content: buffer,
               isFollowUp: isFollowUp,
               id: request.id
             });
           }
-          port.postMessage({ 
+          port.postMessage({
             type: 'done',
             isFollowUp: isFollowUp,
             id: request.id
@@ -567,11 +597,11 @@ Guidelines:
         // Fast processing for multiple lines at once
         for (const line of lines) {
           if (line.trim() === '') continue;
-          
+
           try {
             const parsedLine = JSON.parse(line.replace(/^data: /, ''));
             const settings = await storage.get("settings") as Settings;
-            
+
             if (settings?.modelType === "gemini" && parsedLine.candidates?.[0]?.content?.parts?.[0]?.text) {
               // Handle Gemini response format
               const content = parsedLine.candidates[0].content.parts[0].text;
@@ -585,7 +615,7 @@ Guidelines:
             console.warn('Failed to parse streaming response:', e);
           }
         }
-        
+
         // Send accumulated chunks every 5ms (debounced)
         if (pendingChunks.length > 0 && !processingTimer) {
           processingTimer = setTimeout(processAndSendChunks, 5);
@@ -601,7 +631,7 @@ Guidelines:
         const decoder = new TextDecoder();
         let pendingChunks = [];
         let processingTimer = null;
-        
+
         // Function to efficiently process and send accumulated chunks
         const processAndSendChunks = () => {
           if (pendingChunks.length > 0) {
@@ -615,7 +645,7 @@ Guidelines:
           }
           processingTimer = null;
         };
-        
+
         while (true) {
           const { done, value } = await reader.read();
           if (done) {
@@ -623,10 +653,10 @@ Guidelines:
             processAndSendChunks();
             break;
           }
-          
+
           const chunk = decoder.decode(value);
           const lines = chunk.split('\n').filter(line => line.trim());
-          
+
           for (const line of lines) {
             if (line.startsWith('data: ')) {
               try {
@@ -639,13 +669,13 @@ Guidelines:
               }
             }
           }
-          
+
           // Send accumulated chunks every 5ms (debounced)
           if (pendingChunks.length > 0 && !processingTimer) {
             processingTimer = setTimeout(processAndSendChunks, 5);
           }
         }
-        
+
         // Send done signal
         port.postMessage({
           type: 'done',
@@ -660,13 +690,13 @@ Guidelines:
 
   } catch (error) {
     console.error("Error processing text:", error);
-    
+
     // Send user-friendly error message
     let userMessage = "An error occurred while processing your request. Please try again.";
-    
+
     if (error.message?.includes("rate limit")) {
       userMessage = error.message;
-    } 
+    }
     else if (error.message?.includes("Server responded with")) {
       // For API server errors, provide more context
       userMessage = `API server error: ${error.message}. This might be a temporary issue with the AI provider.`;
@@ -719,7 +749,7 @@ chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === "install") {
     // Open onboarding page in a new tab
     chrome.tabs.create({ url: ONBOARDING_URL });
-    
+
     // Create context menu
     createContextMenu();
   } else {
@@ -752,7 +782,7 @@ chrome.runtime.onConnect.addListener((port) => {
   if (port.name.startsWith('text-processing-')) {
     // Store the port callback reference to prevent garbage collection
     const connectionId = port.name.split('text-processing-')[1];
-    
+
     // Set up message listener
     port.onMessage.addListener(async (request) => {
       if (request.type === "PROCESS_TEXT") {
@@ -774,7 +804,7 @@ chrome.runtime.onConnect.addListener((port) => {
       // Return true to indicate we'll handle the request asynchronously
       return true;
     });
-    
+
     // Handle port disconnect
     port.onDisconnect.addListener(() => {
       // If we have an active generation for this connection, abort it
