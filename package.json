@@ -3,7 +3,7 @@
   "displayName": "LevelUpBrowserAI",
   "version": "0.1.12",
   "description": "Large language intelligent web assistant.",
-  "author": "Moe Sadiq",
+  "author": "jben@sohu.com",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
@@ -85,7 +85,7 @@
       }
     },
     "content_security_policy": {
-      "extension_pages": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/css2; img-src 'self' data: https:; connect-src 'self' http://127.0.0.1:* ws://localhost:* https://api.openai.com https://generativelanguage.googleapis.com https://api.x.ai http://mncjhub.dyn.nesc.nokia.net:11434/*; frame-src 'none'; font-src 'self' data: https://fonts.gstatic.com; media-src 'none'; worker-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
+      "extension_pages": " script-src 'self' 'wasm-unsafe-eval'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/css2; img-src 'self' data: https:;  frame-src 'none'; font-src 'self' data: https://fonts.gstatic.com; media-src 'none'; worker-src 'self'; base-uri 'self'; form-action 'self'; ",
       "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals"
     },
     "web_accessible_resources": [

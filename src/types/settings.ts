@@ -13,7 +13,7 @@ export type GrokModel = "grok-2" | "grok-2-latest" | "grok-beta";
 // Local model types
 export type LocalModel = 
   | "llama-3.2-3b-instruct"
-  | "deepseek-r1"
+  | "deepseek-r1:70b"
   | "deepseek-v3"
   | "deepseek-v3-base"
   | "llama-2-70b-chat"
@@ -78,6 +78,7 @@ export interface Settings {
     showGlobalActionButton?: boolean // Controls visibility of the Quick View button
     contextAwareness?: boolean // New setting for context awareness
     activationMode?: "automatic" | "manual" // Controls whether popup shows automatically or requires context menu
+    enablePDFSupport?: boolean // New setting for PDF support
   }
   translationSettings?: {
     fromLanguage: string
